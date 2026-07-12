@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-label="Frank Rosignolo — signature placeholder">
+  <rect width="600" height="180" fill="none"/>
+  <text x="24" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="58" fill="#14100B">Frank Rosignolo</text>
+  <!-- pen flourish -->
+  <path d="M24 128 C 150 108, 300 148, 430 122 S 560 108, 576 118"
+        fill="none" stroke="#14100B" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M430 122 C 470 114, 500 130, 520 121"
+        fill="none" stroke="#14100B" stroke-width="1.2" stroke-linecap="round" opacity=".7"/>
+</svg>

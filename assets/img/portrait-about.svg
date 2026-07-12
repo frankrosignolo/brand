@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Placeholder plate — awaiting engraved portrait">
+  <defs>
+    <pattern id="hatch" width="7" height="7" patternTransform="rotate(58)" patternUnits="userSpaceOnUse">
+      <rect width="7" height="7" fill="#F4F0E8"/>
+      <line x1="0" y1="0" x2="0" y2="7" stroke="#14100B" stroke-width="1.1" opacity=".82"/>
+    </pattern>
+    <pattern id="hatch-lite" width="9" height="9" patternTransform="rotate(58)" patternUnits="userSpaceOnUse">
+      <rect width="9" height="9" fill="#F4F0E8"/>
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#7A6857" stroke-width="0.9" opacity=".5"/>
+    </pattern>
+    <pattern id="hatch-x" width="8" height="8" patternTransform="rotate(-32)" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="none"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#14100B" stroke-width="0.8" opacity=".5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="1000" fill="#F4F0E8"/>
+  <!-- hatched bands, banknote-guilloche spirit -->
+  <rect x="0" y="0" width="800" height="72" fill="url(#hatch)"/>
+  <rect x="0" y="928" width="800" height="72" fill="url(#hatch)"/>
+  <rect x="0" y="72" width="800" height="20" fill="url(#hatch-lite)"/>
+  <rect x="0" y="908" width="800" height="20" fill="url(#hatch-lite)"/>
+  <!-- oval engraving frame, empty -->
+  <ellipse cx="400" cy="480" rx="252" ry="322" fill="url(#hatch-lite)"/>
+  <ellipse cx="400" cy="480" rx="252" ry="322" fill="url(#hatch-x)"/>
+  <ellipse cx="400" cy="480" rx="252" ry="322" fill="none" stroke="#14100B" stroke-width="2"/>
+  <ellipse cx="400" cy="480" rx="238" ry="308" fill="#F4F0E8" stroke="#14100B" stroke-width="1"/>
+  <!-- folio numeral -->
+  <text x="400" y="500" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="normal" font-size="96" letter-spacing="6" fill="#BAB3A8">00002</text>
+  <text x="400" y="560" text-anchor="middle" font-family="'Space Mono','Courier New',monospace" font-size="17" letter-spacing="4" fill="#7A6857">AWAITING ENGRAVING</text>
+  <!-- registration ticks -->
+  <path d="M40 120 h14 M47 113 v14" stroke="#CC4B1A" stroke-width="2"/>
+  <path d="M746 120 h14 M753 113 v14" stroke="#CC4B1A" stroke-width="2"/>
+  <path d="M40 880 h14 M47 873 v14" stroke="#CC4B1A" stroke-width="2"/>
+  <path d="M746 880 h14 M753 873 v14" stroke="#CC4B1A" stroke-width="2"/>
+</svg>

@@ -114,7 +114,7 @@
       var max = track.scrollWidth - track.clientWidth;
       var idx = Math.min(cards.length - 1, Math.round(track.scrollLeft / step()));
       counter.textContent = pad(idx + 1) + ' / ' + pad(cards.length);
-      meter.style.width = max > 0 ? Math.min(100, (track.scrollLeft / max) * 100) + '%' : '100%';
+      meter.style.width = Math.min(100, ((track.scrollLeft + track.clientWidth) / track.scrollWidth) * 100) + '%';
       prev.disabled = track.scrollLeft <= 2;
       next.disabled = track.scrollLeft >= max - 2;
     }
@@ -133,24 +133,6 @@
     });
     window.addEventListener('resize', update);
     update();
-  }
-
-  /* ---------- reveal on scroll ---------- */
-  if ('IntersectionObserver' in window &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          en.target.classList.add('in');
-          io.unobserve(en.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    document.querySelectorAll('.section .sec-head, .thesis .line, .cta-final .line, .offer-plate')
-      .forEach(function (el) {
-        el.classList.add('reveal');
-        io.observe(el);
-      });
   }
 
   /* ---------- footer year ---------- */
