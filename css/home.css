@@ -52,9 +52,11 @@
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
 .hero .metarow{margin-top:0}
 
-/* hero portrait — bare engraving, no plate */
-.hero-portrait{align-self:end;display:flex;align-items:flex-end;justify-content:center}
-.hero-portrait img{width:100%;height:auto;mix-blend-mode:multiply}
+/* hero portrait — bare engraving, no plate.
+   The image carries its own alpha (ink on transparent), so no blend modes
+   or flex wrappers — Safari mis-renders both on <img>. */
+.hero-portrait{align-self:end}
+.hero-portrait img{display:block;width:100%;height:auto}
 
 /* portrait plate */
 .portrait-plate{align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end}
