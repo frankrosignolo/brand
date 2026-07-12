@@ -78,13 +78,29 @@
   margin-top:var(--space-4);
 }
 .logobar .overline{display:block}
-.wordlogo{
-  font-family:var(--font-sans);font-weight:500;font-size:clamp(.95rem,1.6vw,1.2rem);
-  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-400);
-  transition:color var(--dur) var(--ease);white-space:nowrap;
+/* Monochrome brand marks — single-color SVG, inherit the ink tone via
+   currentColor and darken on hover, exactly as the old wordmarks did.
+   Heights are tuned per mark so optical weight matches across glyph,
+   wordmark, and the solid Amex box. */
+.logo-mark{
+  display:inline-flex;align-items:center;color:var(--ink-400);
+  transition:color var(--dur) var(--ease);
 }
-.wordlogo:hover{color:var(--ink-700)}
+.logo-mark:hover{color:var(--ink-700)}
+.logo-mark svg{display:block;width:auto}
+.logo-apple svg{height:30px}
+.logo-microsoft svg{height:20px}
+.logo-samsung svg{height:17px}
+.logo-fox svg{height:21px}
+.logo-amex svg{height:28px}
 .logobar .more{margin-left:auto}
+@media (max-width:760px){
+  .logo-apple svg{height:26px}
+  .logo-microsoft svg{height:17px}
+  .logo-samsung svg{height:15px}
+  .logo-fox svg{height:18px}
+  .logo-amex svg{height:24px}
+}
 
 /* ---------- thesis / hook ---------- */
 .thesis{border-top:var(--rule-heavy);border-bottom:var(--rule-heavy);padding:clamp(40px,6vw,84px) 0;margin:clamp(24px,4vw,48px) 0}
