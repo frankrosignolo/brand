@@ -74,8 +74,9 @@
 /* ---------- logo bar ---------- */
 .logobar{padding:clamp(28px,4vw,44px) 0;border-top:var(--rule)}
 .logobar .row{
-  display:flex;align-items:center;gap:clamp(20px,4vw,56px);flex-wrap:wrap;
-  margin-top:var(--space-4);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:clamp(20px,3vw,48px);flex-wrap:wrap;
+  margin-top:var(--space-5);
 }
 .logobar .overline{display:block}
 /* Monochrome brand marks — single-color SVG, inherit the ink tone via
@@ -88,13 +89,20 @@
 }
 .logo-mark:hover{color:var(--ink-700)}
 .logo-mark svg{display:block;width:auto}
-.logo-apple svg{height:30px}
-.logo-microsoft svg{height:20px}
-.logo-samsung svg{height:17px}
-.logo-fox svg{height:21px}
-.logo-amex svg{height:28px}
-.logobar .more{margin-left:auto}
+.logo-apple svg{height:42px}
+.logo-microsoft svg{height:28px}
+.logo-samsung svg{height:24px}
+.logo-fox svg{height:29px}
+.logo-amex svg{height:38px}
+@media (max-width:900px){
+  .logo-apple svg{height:32px}
+  .logo-microsoft svg{height:21px}
+  .logo-samsung svg{height:18px}
+  .logo-fox svg{height:22px}
+  .logo-amex svg{height:29px}
+}
 @media (max-width:760px){
+  .logobar .row{justify-content:flex-start;gap:20px 28px}
   .logo-apple svg{height:26px}
   .logo-microsoft svg{height:17px}
   .logo-samsung svg{height:15px}
