@@ -23,6 +23,31 @@
     });
   }
 
+  /* ---------- free resources dropdown ---------- */
+  var dropBtn = document.querySelector('.nav-drop-btn');
+  var dropPanel = document.getElementById('resources-panel');
+  if (dropBtn && dropPanel) {
+    function setDrop(open) {
+      dropBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      dropPanel.hidden = !open;
+    }
+    dropBtn.addEventListener('click', function () {
+      setDrop(dropPanel.hidden);
+    });
+    dropPanel.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setDrop(false);
+    });
+    document.addEventListener('click', function (e) {
+      if (!dropPanel.hidden && !e.target.closest('.site-head')) setDrop(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !dropPanel.hidden) {
+        setDrop(false);
+        dropBtn.focus();
+      }
+    });
+  }
+
   /* ---------- 1. skills: tab switcher ---------- */
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.skill-tab'));
   var panels = Array.prototype.slice.call(document.querySelectorAll('.skill-panel'));
