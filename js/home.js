@@ -43,6 +43,26 @@
     });
   }
 
+  /* ---------- notice bar: cycle announcements ---------- */
+  var nbItems = Array.prototype.slice.call(document.querySelectorAll('.nb-item'));
+  var nbCount = document.querySelector('.nb-count');
+  if (nbItems.length > 1) {
+    var nbIdx = 0;
+    var nbPaused = false;
+    var nbBar = document.querySelector('.notice-bar');
+    nbBar.addEventListener('mouseenter', function () { nbPaused = true; });
+    nbBar.addEventListener('mouseleave', function () { nbPaused = false; });
+    nbBar.addEventListener('focusin', function () { nbPaused = true; });
+    nbBar.addEventListener('focusout', function () { nbPaused = false; });
+    setInterval(function () {
+      if (nbPaused) return;
+      nbItems[nbIdx].classList.remove('on');
+      nbIdx = (nbIdx + 1) % nbItems.length;
+      nbItems[nbIdx].classList.add('on');
+      if (nbCount) nbCount.textContent = '0' + (nbIdx + 1) + ' / 0' + nbItems.length;
+    }, 5000);
+  }
+
   /* ---------- free resources dropdown ---------- */
   var dropBtn = document.querySelector('.nav-drop-btn');
   var dropPanel = document.getElementById('resources-panel');
