@@ -1,0 +1,30 @@
+# One-off helper: pulls generated imagery from the Higgsfield CDN into the
+# branch (the CI sandbox that built this site cannot reach that CDN directly).
+# Safe to delete once assets/img is populated.
+name: fetch-assets
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download generated images
+        run: |
+          set -euo pipefail
+          mkdir -p assets/img/raw
+          base="https://d8j0ntlcm91z4.cloudfront.net/user_3GNbFVhQRvMK14yX1zQT9zOcszs"
+          curl -fsSL -o assets/img/raw/hero-a.png    "$base/hf_20260712_011300_311fd718-bbd3-41a8-bd67-1d1cb0377707.png"
+          curl -fsSL -o assets/img/raw/hero-b.png    "$base/hf_20260712_011300_00915c47-46b0-4edb-9df5-d3abb839da1b.png"
+          curl -fsSL -o assets/img/raw/about-a.png   "$base/hf_20260712_011307_af65595d-c48b-4260-92f4-3fb717f84c97.png"
+          curl -fsSL -o assets/img/raw/about-b.png   "$base/hf_20260712_011308_ad1a7884-f94b-47a0-b738-eeb3d63422b9.png"
+          curl -fsSL -o assets/img/raw/signature.png "$base/hf_20260712_011310_d6b02530-5bb5-4010-ab5e-eebf2e07e6df.png"
+          ls -la assets/img/raw
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/img/raw
+          git commit -m "chore: fetch generated imagery (raw)"
+          git push
