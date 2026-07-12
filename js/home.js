@@ -7,6 +7,26 @@
 (function () {
   'use strict';
 
+  /* ---------- keep the URL hash-free ----------
+     Anchor clicks used to write #skills etc. into the URL, so the next
+     visit auto-scrolled past the hero. Scroll without recording a hash,
+     and neutralize any stale hash already in the URL. */
+  if (location.hash) {
+    history.replaceState(null, '', location.pathname + location.search);
+    var root = document.documentElement;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    root.style.scrollBehavior = '';
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var target = document.getElementById(a.getAttribute('href').slice(1));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView();
+  });
+
   /* ---------- mobile nav ---------- */
   var menuBtn = document.querySelector('.menu-btn');
   var nav = document.getElementById('site-nav');
