@@ -52,6 +52,10 @@
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
 .hero .metarow{margin-top:0}
 
+/* hero portrait — bare engraving, no plate */
+.hero-portrait{align-self:end;display:flex;align-items:flex-end;justify-content:center}
+.hero-portrait img{width:100%;height:auto;mix-blend-mode:multiply}
+
 /* portrait plate */
 .portrait-plate{align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end}
 .portrait-plate .art{
@@ -269,7 +273,7 @@
 /* ---------- responsive ---------- */
 @media (max-width:1080px){
   .hero-grid{grid-template-columns:1fr;align-items:start}
-  .portrait-plate{max-width:520px}
+  .portrait-plate,.hero-portrait{max-width:520px}
 }
 @media (max-width:900px){
   .site-nav{
