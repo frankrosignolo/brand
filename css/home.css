@@ -56,12 +56,16 @@ a.res-box:hover{background:var(--ink-050);border-color:var(--ink-700)}
   position:absolute;top:16px;right:18px;
   font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;color:var(--ink-300);
 }
-.res-ico{display:block;width:28px;height:28px;color:var(--ink-600)}
-a.res-box:hover .res-ico{color:var(--rust-600)}
+.res-art{
+  display:block;width:min(158px,64%);height:auto;align-self:center;
+  margin-top:10px;
+  transition:transform var(--dur) var(--ease);
+}
+a.res-box:hover .res-art{transform:translateY(-2px)}
 .res-box b{display:block;margin-top:auto;font-weight:500;font-size:1.5rem;letter-spacing:-.018em;line-height:1.1;color:var(--ink-900);margin-bottom:9px}
 .res-box p{font-size:.85rem;line-height:1.55;color:var(--ink-500);max-width:30ch}
 .res-box.soon{cursor:default}
-.res-box.soon .res-ico,.res-box.soon b{opacity:.55}
+.res-box.soon .res-art,.res-box.soon b{opacity:.55}
 .res-box.soon p{opacity:.7}
 .soon-tag{
   font-family:var(--font-mono);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;
