@@ -46,19 +46,20 @@
   padding:var(--space-5) 0 var(--space-6);
 }
 .res-box{
-  position:relative;display:block;border:var(--rule);padding:18px 18px 20px;
+  position:relative;display:flex;flex-direction:column;min-height:312px;
+  border:var(--rule);padding:24px 22px 26px;
   text-decoration:none;color:inherit;
   transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);
 }
 a.res-box:hover{background:var(--ink-050);border-color:var(--ink-700)}
 .res-idx{
-  position:absolute;top:14px;right:16px;
+  position:absolute;top:16px;right:18px;
   font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;color:var(--ink-300);
 }
-.res-ico{display:block;width:22px;height:22px;color:var(--ink-600);margin-bottom:26px}
+.res-ico{display:block;width:28px;height:28px;color:var(--ink-600)}
 a.res-box:hover .res-ico{color:var(--rust-600)}
-.res-box b{display:block;font-weight:500;font-size:.95rem;letter-spacing:-.01em;color:var(--ink-900);margin-bottom:5px}
-.res-box p{font-size:.8rem;line-height:1.5;color:var(--ink-500)}
+.res-box b{display:block;margin-top:auto;font-weight:500;font-size:1.5rem;letter-spacing:-.018em;line-height:1.1;color:var(--ink-900);margin-bottom:9px}
+.res-box p{font-size:.85rem;line-height:1.55;color:var(--ink-500);max-width:30ch}
 .res-box.soon{cursor:default}
 .res-box.soon .res-ico,.res-box.soon b{opacity:.55}
 .res-box.soon p{opacity:.7}
