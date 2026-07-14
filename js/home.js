@@ -77,6 +77,13 @@
     dropPanel.addEventListener('click', function (e) {
       if (e.target.closest('a')) setDrop(false);
     });
+    // hover-open on pointer-capable devices; leaving the header closes it
+    // (moving down into the panel keeps it open since the panel lives in .site-head)
+    var siteHead = document.querySelector('.site-head');
+    if (siteHead && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      dropBtn.addEventListener('mouseenter', function () { setDrop(true); });
+      siteHead.addEventListener('mouseleave', function () { setDrop(false); });
+    }
     document.addEventListener('click', function (e) {
       if (!dropPanel.hidden && !e.target.closest('.site-head')) setDrop(false);
     });
